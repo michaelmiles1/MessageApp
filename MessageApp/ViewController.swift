@@ -40,6 +40,7 @@ extension ViewController {
 // Older iOS keyboard layout
 extension ViewController {
     private var bottomSafeAreaHeight: CGFloat {
+        // - have to use UIWindow here because we're referencing it in viewDidLoad, safe area isn't loaded yet for our view
         let window = UIApplication.shared.windows[0]
         let safeFrame = window.safeAreaLayoutGuide.layoutFrame
         return window.frame.maxY - safeFrame.maxY
