@@ -38,16 +38,9 @@ extension ViewController {
 }
 
 // Older iOS keyboard layout
-extension ViewController {
-    private var bottomSafeAreaHeight: CGFloat {
-        // - have to use UIWindow here because we're referencing it in viewDidLoad, safe area isn't loaded yet for our view
-        let window = UIApplication.shared.windows[0]
-        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
-        return window.frame.maxY - safeFrame.maxY
-    }
-    
+extension ViewController {    
     private func applyOldiOSKeyboardLayout() {
-        oldContainerViewBottomConstraint.constant = bottomSafeAreaHeight
+        oldContainerViewBottomConstraint.constant = UIApplication.shared.windows[0].safeAreaInsets.bottom
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -57,7 +50,7 @@ extension ViewController {
         if let endRect = notifInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             var offset = view.bounds.size.height - endRect.origin.y
             if offset == 0.0 {
-                offset = bottomSafeAreaHeight
+                offset = UIApplication.shared.windows[0].safeAreaInsets.bottom
             }
             let duration = notifInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.5
             UIView.animate(withDuration: duration) { [weak self] in
@@ -72,7 +65,7 @@ extension ViewController {
         let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.5
         UIView.animate(withDuration: duration) { [weak self] in
             guard let welf = self else { return }
-            welf.oldContainerViewBottomConstraint.constant = welf.bottomSafeAreaHeight
+            welf.oldContainerViewBottomConstraint.constant = UIApplication.shared.windows[0].safeAreaInsets.bottom
             welf.view.layoutIfNeeded()
         }
     }
