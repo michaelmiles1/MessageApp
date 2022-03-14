@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-ql-MsT">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-ql-MsT" userLabel="SendMessageContainerView">
                                 <rect key="frame" x="0.0" y="789" width="414" height="73"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnT-lC-2tZ">
@@ -70,13 +70,19 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ND2-3g-kgR" secondAttribute="trailing" id="Fjr-YM-xDk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TZg-ql-MsT" secondAttribute="trailing" id="P12-SS-mXA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TZg-ql-MsT" secondAttribute="bottom" id="cyQ-2v-2Xz"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="top" secondItem="ND2-3g-kgR" secondAttribute="bottom" id="dpW-jX-qny"/>
                             <constraint firstItem="ND2-3g-kgR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gga-zR-Xn0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TZg-ql-MsT" secondAttribute="bottom" id="hD1-uf-DXh"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oWo-WM-Nxx"/>
                             <constraint firstItem="ND2-3g-kgR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tWD-Qt-Ko6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newMessageTextView" destination="aTp-Ei-vz8" id="aOm-M9-3dx"/>
+                        <outlet property="oldContainerViewBottomConstraint" destination="cyQ-2v-2Xz" id="6ir-9c-i3W"/>
+                        <outlet property="sendButton" destination="CnT-lC-2tZ" id="Pn9-mJ-ZvQ"/>
+                        <outlet property="sendMessageContainerView" destination="TZg-ql-MsT" id="IwW-nb-EsD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
