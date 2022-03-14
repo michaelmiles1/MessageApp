@@ -48,10 +48,11 @@ extension ViewController {
     
     private func applyOldiOSKeyboardLayout() {
         oldContainerViewBottomConstraint.constant = bottomSafeAreaHeight
-        NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    @objc private func respondToKeyboard(notification: Notification) {
+    @objc private func showKeyboard(notification: Notification) {
         let notifInfo = notification.userInfo
         if let endRect = notifInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             var offset = view.bounds.size.height - endRect.origin.y
@@ -64,6 +65,15 @@ extension ViewController {
                 welf.oldContainerViewBottomConstraint.constant = offset
                 welf.view.layoutIfNeeded()
             }
+        }
+    }
+    
+    @objc private func hideKeyboard(notification: Notification) {
+        let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.5
+        UIView.animate(withDuration: duration) { [weak self] in
+            guard let welf = self else { return }
+            welf.oldContainerViewBottomConstraint.constant = welf.bottomSafeAreaHeight
+            welf.view.layoutIfNeeded()
         }
     }
 }
