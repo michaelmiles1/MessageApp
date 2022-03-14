@@ -39,8 +39,14 @@ extension ViewController {
 
 // Older iOS keyboard layout
 extension ViewController {
+    private var bottomSafeAreaHeight: CGFloat {
+        let window = UIApplication.shared.windows[0]
+        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+        return window.frame.maxY - safeFrame.maxY
+    }
+    
     private func applyOldiOSKeyboardLayout() {
-        oldContainerViewBottomConstraint.constant = view.safeAreaInsets.bottom
+        oldContainerViewBottomConstraint.constant = bottomSafeAreaHeight
         NotificationCenter.default.addObserver(self, selector: #selector(respondToKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
@@ -49,7 +55,7 @@ extension ViewController {
         if let endRect = notifInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             var offset = view.bounds.size.height - endRect.origin.y
             if offset == 0.0 {
-                offset = view.safeAreaInsets.bottom
+                offset = bottomSafeAreaHeight
             }
             let duration = notifInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.5
             UIView.animate(withDuration: duration) { [weak self] in

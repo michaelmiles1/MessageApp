@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZg-ql-MsT" userLabel="SendMessageContainerView">
-                                <rect key="frame" x="0.0" y="789" width="414" height="73"/>
+                                <rect key="frame" x="0.0" y="823" width="414" height="73"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnT-lC-2tZ">
                                         <rect key="frame" x="336.5" y="21" width="57.5" height="31"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-3g-kgR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="745"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vRl-oV-xEQ">
                                     <size key="itemSize" width="128" height="128"/>
@@ -70,7 +70,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ND2-3g-kgR" secondAttribute="trailing" id="Fjr-YM-xDk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TZg-ql-MsT" secondAttribute="trailing" id="P12-SS-mXA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TZg-ql-MsT" secondAttribute="bottom" id="cyQ-2v-2Xz"/>
+                            <constraint firstAttribute="bottom" secondItem="TZg-ql-MsT" secondAttribute="bottom" id="cyQ-2v-2Xz"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="top" secondItem="ND2-3g-kgR" secondAttribute="bottom" id="dpW-jX-qny"/>
                             <constraint firstItem="ND2-3g-kgR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gga-zR-Xn0"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oWo-WM-Nxx"/>
