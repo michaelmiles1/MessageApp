@@ -47,20 +47,48 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ND2-3g-kgR">
                                 <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vRl-oV-xEQ">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vsF-9T-Neq">
+                                    <size key="itemSize" width="414" height="109"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aTf-61-qE6">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MessageCollectionViewCell" id="aTf-61-qE6" customClass="MessageCollectionViewCell" customModule="MessageApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iut-ch-hoD">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-L0-6D6">
+                                                    <rect key="frame" x="209" y="8" width="197" height="93"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Text goes here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4K-dF-qUh">
+                                                            <rect key="frame" x="6" y="6" width="185" height="81"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="G4K-dF-qUh" secondAttribute="trailing" constant="6" id="9NT-Gj-Lva"/>
+                                                        <constraint firstItem="G4K-dF-qUh" firstAttribute="top" secondItem="wcG-L0-6D6" secondAttribute="top" constant="6" id="9xN-rp-1mb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="G4K-dF-qUh" secondAttribute="bottom" constant="6" id="NKm-MH-nhZ"/>
+                                                        <constraint firstItem="G4K-dF-qUh" firstAttribute="leading" secondItem="wcG-L0-6D6" secondAttribute="leading" constant="6" id="YvB-eq-NkV"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wcG-L0-6D6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iut-ch-hoD" secondAttribute="leading" constant="120" id="Cgz-ZR-Su2"/>
+                                                <constraint firstAttribute="bottom" secondItem="wcG-L0-6D6" secondAttribute="bottom" constant="8" id="aBa-X6-nPZ"/>
+                                                <constraint firstItem="wcG-L0-6D6" firstAttribute="top" secondItem="iut-ch-hoD" secondAttribute="top" constant="8" id="aQB-Iw-zD5"/>
+                                                <constraint firstAttribute="trailing" secondItem="wcG-L0-6D6" secondAttribute="trailing" constant="8" id="bT8-Jp-Dtz"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <size key="customSize" width="414" height="109"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -95,6 +123,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

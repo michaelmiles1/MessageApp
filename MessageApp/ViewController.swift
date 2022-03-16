@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var oldContainerViewBottomConstraint: NSLayoutConstraint!
     
+    private var messageArray: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupKeyboard()
+        setupCollectionView()
     }
     
     private func setupKeyboard() {
@@ -34,7 +37,22 @@ class ViewController: UIViewController {
         // Q: Should we also close the keyboard when a message is sent? Other apps don't do this so I'll leave that out
         newMessageTextView.resignFirstResponder()
     }
+    
+    private func setupCollectionView() {
+        //flow layout automatic sizing
+    }
 
+}
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        messageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MessageCollectionViewCell", for: indexPath) as! MessageCollectionViewCell
+        return cell
+    }
 }
 
 // iOS 15 keyboard layout

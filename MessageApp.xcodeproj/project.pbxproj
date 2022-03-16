@@ -13,6 +13,7 @@
 		5C7F0B8E27DF7E8200854D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F0B8C27DF7E8200854D90 /* Main.storyboard */; };
 		5C7F0B9027DF7E8400854D90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F0B8F27DF7E8400854D90 /* Assets.xcassets */; };
 		5C7F0B9327DF7E8400854D90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C7F0B9127DF7E8400854D90 /* LaunchScreen.storyboard */; };
+		5C7F0BA827E22A9C00854D90 /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7F0BA727E22A9C00854D90 /* MessageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5C7F0B8F27DF7E8400854D90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C7F0B9227DF7E8400854D90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C7F0B9427DF7E8400854D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7F0BA727E22A9C00854D90 /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				5C7F0B8627DF7E8200854D90 /* AppDelegate.swift */,
 				5C7F0B8827DF7E8200854D90 /* SceneDelegate.swift */,
 				5C7F0B8A27DF7E8200854D90 /* ViewController.swift */,
+				5C7F0BA727E22A9C00854D90 /* MessageCollectionViewCell.swift */,
 				5C7F0B8C27DF7E8200854D90 /* Main.storyboard */,
 				5C7F0B8F27DF7E8400854D90 /* Assets.xcassets */,
 				5C7F0B9127DF7E8400854D90 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				5C7F0B8B27DF7E8200854D90 /* ViewController.swift in Sources */,
 				5C7F0B8727DF7E8200854D90 /* AppDelegate.swift in Sources */,
+				5C7F0BA827E22A9C00854D90 /* MessageCollectionViewCell.swift in Sources */,
 				5C7F0B8927DF7E8200854D90 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
