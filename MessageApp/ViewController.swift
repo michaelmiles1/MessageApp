@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func closeKeyboard() {
+        // Q: Should we also close the keyboard when a message is sent? Other apps don't do this so I'll leave that out
         newMessageTextView.resignFirstResponder()
     }
 
