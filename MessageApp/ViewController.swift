@@ -18,13 +18,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupKeyboard()
+    }
+    
+    private func setupKeyboard() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeKeyboard)))
         if #available(iOS 15.0, *) {
             applyiOS15KeyboardLayout()
         } else {
             applyOldiOSKeyboardLayout()
         }
     }
-
+    
+    @objc private func closeKeyboard() {
+        newMessageTextView.resignFirstResponder()
+    }
 
 }
 
