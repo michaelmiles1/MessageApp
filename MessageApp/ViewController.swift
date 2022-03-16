@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var newMessageTextView: UITextView!
     @IBOutlet private weak var sendMessageContainerView: UIView!
+    @IBOutlet private weak var messageCollectionView: UICollectionView!
     
     @IBOutlet weak var oldContainerViewBottomConstraint: NSLayoutConstraint!
     
@@ -39,8 +39,19 @@ class ViewController: UIViewController {
     }
     
     private func setupCollectionView() {
-        //flow layout automatic sizing
+        messageCollectionView.delegate   = self
+        messageCollectionView.dataSource = self
+        if let flow = messageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
     }
+    
+    @IBAction func sendButtonPressed(_ sender: Any) {
+        messageArray.append(newMessageTextView.text)
+        newMessageTextView.text = "test"
+        messageCollectionView.reloadData()
+    }
+    
 
 }
 
@@ -51,6 +62,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MessageCollectionViewCell", for: indexPath) as! MessageCollectionViewCell
+        let message = messageArray[indexPath.row]
+        cell.messageTextLabel.text = message
         return cell
     }
 }

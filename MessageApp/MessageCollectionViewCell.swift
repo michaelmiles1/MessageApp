@@ -8,5 +8,5 @@
 import UIKit
 
 class MessageCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var messageTextLabel: UILabel!
 }
