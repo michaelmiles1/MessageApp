@@ -1,5 +1,5 @@
 //
-//  MessageCollectionViewCell.swift
+//  MessageTableViewCell.swift
 //  MessageApp
 //
 //  Created by Michael Miles on 3/16/22.
@@ -7,6 +7,6 @@
 
 import UIKit
 
-class MessageCollectionViewCell: UICollectionViewCell {
+class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var messageTextLabel: UILabel!
 }

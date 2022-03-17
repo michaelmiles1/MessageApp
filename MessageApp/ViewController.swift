@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var newMessageTextView: UITextView!
     @IBOutlet private weak var sendMessageContainerView: UIView!
-    @IBOutlet private weak var messageCollectionView: UICollectionView!
+    @IBOutlet private weak var messageTableView: UITableView!
     
     @IBOutlet weak var oldContainerViewBottomConstraint: NSLayoutConstraint!
     
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupKeyboard()
-        setupCollectionView()
+        setupTableView()
     }
     
     private func setupKeyboard() {
@@ -38,30 +38,29 @@ class ViewController: UIViewController {
         newMessageTextView.resignFirstResponder()
     }
     
-    private func setupCollectionView() {
-        messageCollectionView.delegate   = self
-        messageCollectionView.dataSource = self
-        if let flow = messageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
+    private func setupTableView() {
+        messageTableView.delegate           = self
+        messageTableView.dataSource         = self
+        messageTableView.rowHeight          = UITableView.automaticDimension
+        messageTableView.estimatedRowHeight = 75
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         messageArray.append(newMessageTextView.text)
         newMessageTextView.text = "test"
-        messageCollectionView.reloadData()
+        messageTableView.reloadData()
     }
     
 
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         messageArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MessageCollectionViewCell", for: indexPath) as! MessageCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
         let message = messageArray[indexPath.row]
         cell.messageTextLabel.text = message
         return cell
