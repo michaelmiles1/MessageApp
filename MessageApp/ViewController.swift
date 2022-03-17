@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         messageTableView.dataSource         = self
         messageTableView.rowHeight          = UITableView.automaticDimension
         messageTableView.estimatedRowHeight = 75
+        messageTableView.transform          = CGAffineTransform(scaleX: 1, y: -1)
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
@@ -61,6 +62,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
+        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         let message = messageArray[indexPath.row]
         cell.messageTextLabel.text = message
         return cell
