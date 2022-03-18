@@ -62,11 +62,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMessageTableViewCell", for: indexPath) as! SentMessageTableViewCell
-        cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         let message = messageArray[indexPath.row]
-        cell.messageTextLabel.text = message.text
-        return cell
+        switch message.type {
+        case .sent:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SentMessageTableViewCell", for: indexPath) as! SentMessageTableViewCell
+            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+            cell.messageTextLabel.text = message.text
+            return cell
+        case .received:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ReceivedMessageTableViewCell", for: indexPath) as! ReceivedMessageTableViewCell
+            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
+            cell.messageTextLabel.text = message.text
+            return cell
+        }
     }
 }
 
