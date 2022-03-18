@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var oldContainerViewBottomConstraint: NSLayoutConstraint!
     
-    private var messageArray: [String] = []
+    private var messageArray: [MessageModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
-        messageArray.insert(newMessageTextView.text, at: 0)
+        let newMessage = MessageModel(text: newMessageTextView.text, type: .sent)
+        messageArray.insert(newMessage, at: 0)
         newMessageTextView.text = "test"
         messageTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
@@ -61,10 +62,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageTableViewCell", for: indexPath) as! MessageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMessageTableViewCell", for: indexPath) as! SentMessageTableViewCell
         cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
         let message = messageArray[indexPath.row]
-        cell.messageTextLabel.text = message
+        cell.messageTextLabel.text = message.text
         return cell
     }
 }
@@ -112,3 +113,12 @@ extension ViewController {
     }
 }
 
+struct MessageModel {
+    var text: String
+    var type: MessageType
+    
+    enum MessageType {
+        case sent
+        case received
+    }
+}

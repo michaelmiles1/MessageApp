@@ -7,6 +7,6 @@
 
 import UIKit
 
-class MessageTableViewCell: UITableViewCell {
+class SentMessageTableViewCell: UITableViewCell {
     @IBOutlet weak var messageTextLabel: UILabel!
 }
