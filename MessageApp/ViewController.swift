@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     
     private func addMessageToTable(_ msg: MessageModel) {
         messageArray.insert(msg, at: 0)
-        messageTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        messageTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
     }
     
 }
