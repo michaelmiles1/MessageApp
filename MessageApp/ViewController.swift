@@ -47,9 +47,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
-        messageArray.append(newMessageTextView.text)
+        messageArray.insert(newMessageTextView.text, at: 0)
         newMessageTextView.text = "test"
-        messageTableView.reloadData()
+        messageTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
     
 
