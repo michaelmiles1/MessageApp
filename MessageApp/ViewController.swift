@@ -48,12 +48,20 @@ class ViewController: UIViewController {
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         let newMessage = MessageModel(text: newMessageTextView.text, type: .sent)
-        messageArray.insert(newMessage, at: 0)
+        addMessageToTable(newMessage)
         newMessageTextView.text = "test"
+    }
+    
+    @IBAction func receiveButtonPressed(_ sender: Any) {
+        let newMessage = MessageModel(text: "Here's your new message!", type: .received)
+        addMessageToTable(newMessage)
+    }
+    
+    private func addMessageToTable(_ msg: MessageModel) {
+        messageArray.insert(msg, at: 0)
         messageTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
     
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

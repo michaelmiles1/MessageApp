@@ -47,7 +47,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bZH-YU-Cal">
-                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="735"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMessageTableViewCell" id="PJS-8K-qld" customClass="SentMessageTableViewCell" customModule="MessageApp" customModuleProvider="target">
@@ -88,17 +88,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceivedMessageTableViewCell" id="Xdb-25-6w0" customClass="ReceivedMessageTableViewCell" customModule="MessageApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93" width="414" height="49"/>
+                                        <rect key="frame" x="0.0" y="93" width="414" height="48.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xdb-25-6w0" id="izh-uT-GIm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G82-zr-cnB">
-                                                    <rect key="frame" x="8" y="8" width="54" height="33"/>
+                                                    <rect key="frame" x="8" y="8" width="54" height="32.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-sC-Klt">
-                                                            <rect key="frame" x="6" y="6" width="42" height="21"/>
+                                                            <rect key="frame" x="6" y="6" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -126,17 +126,32 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjJ-wM-38b">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Message Test App" id="eHh-59-N2J">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="reply" id="d2U-L7-Zfs">
+                                            <connections>
+                                                <action selector="receiveButtonPressed:" destination="BYZ-38-t0r" id="LSH-ej-5T1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bZH-YU-Cal" secondAttribute="trailing" id="4rE-6r-2ME"/>
+                            <constraint firstItem="SjJ-wM-38b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O5g-ML-Xlv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TZg-ql-MsT" secondAttribute="trailing" id="P12-SS-mXA"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="top" secondItem="bZH-YU-Cal" secondAttribute="bottom" id="P5c-xi-XNh"/>
+                            <constraint firstItem="bZH-YU-Cal" firstAttribute="top" secondItem="SjJ-wM-38b" secondAttribute="bottom" id="U5f-Ij-2lM"/>
                             <constraint firstAttribute="bottom" secondItem="TZg-ql-MsT" secondAttribute="bottom" id="cyQ-2v-2Xz"/>
                             <constraint firstItem="bZH-YU-Cal" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dYL-3G-nsy"/>
+                            <constraint firstItem="SjJ-wM-38b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jWt-NH-PHc"/>
                             <constraint firstItem="TZg-ql-MsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oWo-WM-Nxx"/>
-                            <constraint firstItem="bZH-YU-Cal" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sOR-Kz-jJw"/>
+                            <constraint firstItem="SjJ-wM-38b" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uYg-pS-ON0"/>
                         </constraints>
                     </view>
                     <connections>
