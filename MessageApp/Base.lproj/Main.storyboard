@@ -50,7 +50,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="735"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SentMessageTableViewCell" id="PJS-8K-qld" customClass="SentMessageTableViewCell" customModule="MessageApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageTableViewCell" id="PJS-8K-qld" customClass="MessageTableViewCell" customModule="MessageApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="48.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PJS-8K-qld" id="fwk-qu-34h">
@@ -73,55 +73,28 @@
                                                         <constraint firstItem="xTQ-6d-Rao" firstAttribute="leading" secondItem="J7e-q1-m0D" secondAttribute="leading" constant="6" id="Am9-sg-1Z2"/>
                                                         <constraint firstItem="xTQ-6d-Rao" firstAttribute="top" secondItem="J7e-q1-m0D" secondAttribute="top" constant="6" id="OAR-zf-qlg"/>
                                                         <constraint firstAttribute="trailing" secondItem="xTQ-6d-Rao" secondAttribute="trailing" constant="6" id="gaP-EX-XYb"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="p8X-Pb-A4q"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="J7e-q1-m0D" firstAttribute="leading" secondItem="fwk-qu-34h" secondAttribute="leading" constant="8" id="96m-H5-VZ0"/>
                                                 <constraint firstItem="J7e-q1-m0D" firstAttribute="top" secondItem="fwk-qu-34h" secondAttribute="top" constant="8" id="Tzc-XS-5IX"/>
                                                 <constraint firstAttribute="bottom" secondItem="J7e-q1-m0D" secondAttribute="bottom" constant="8" id="dQn-QX-I8i"/>
                                                 <constraint firstAttribute="trailing" secondItem="J7e-q1-m0D" secondAttribute="trailing" constant="8" id="lbF-SZ-hxo"/>
-                                                <constraint firstItem="J7e-q1-m0D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fwk-qu-34h" secondAttribute="leading" constant="90" id="qv6-rn-rl9"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="96m-H5-VZ0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="leadingViewConstraint" destination="96m-H5-VZ0" id="nfF-h0-tdX"/>
+                                            <outlet property="messageBoxWidthConstraint" destination="p8X-Pb-A4q" id="0Pm-Yo-dEu"/>
+                                            <outlet property="messageContainerView" destination="J7e-q1-m0D" id="xXT-ea-M2s"/>
                                             <outlet property="messageTextLabel" destination="xTQ-6d-Rao" id="EJx-BP-qPZ"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceivedMessageTableViewCell" id="Xdb-25-6w0" customClass="ReceivedMessageTableViewCell" customModule="MessageApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93" width="414" height="48.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xdb-25-6w0" id="izh-uT-GIm">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G82-zr-cnB">
-                                                    <rect key="frame" x="8" y="8" width="54" height="32.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-sC-Klt">
-                                                            <rect key="frame" x="6" y="6" width="42" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                    <constraints>
-                                                        <constraint firstItem="Eb8-sC-Klt" firstAttribute="top" secondItem="G82-zr-cnB" secondAttribute="top" constant="6" id="CtE-c7-FLX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Eb8-sC-Klt" secondAttribute="trailing" constant="6" id="tdZ-Ud-4Aa"/>
-                                                        <constraint firstItem="Eb8-sC-Klt" firstAttribute="leading" secondItem="G82-zr-cnB" secondAttribute="leading" constant="6" id="tgi-pb-Rcj"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Eb8-sC-Klt" secondAttribute="bottom" constant="6" id="vej-rH-H6l"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G82-zr-cnB" secondAttribute="trailing" constant="90" id="TZM-AJ-974"/>
-                                                <constraint firstItem="G82-zr-cnB" firstAttribute="leading" secondItem="izh-uT-GIm" secondAttribute="leading" constant="8" id="ZqV-Rh-B8y"/>
-                                                <constraint firstAttribute="bottom" secondItem="G82-zr-cnB" secondAttribute="bottom" constant="8" id="cCj-JR-Mdg"/>
-                                                <constraint firstItem="G82-zr-cnB" firstAttribute="top" secondItem="izh-uT-GIm" secondAttribute="top" constant="8" id="fpA-GL-xuI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="messageTextLabel" destination="Eb8-sC-Klt" id="TOW-qR-Ux3"/>
+                                            <outlet property="trailingViewContraint" destination="lbF-SZ-hxo" id="GTe-2M-zEi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -175,9 +148,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
