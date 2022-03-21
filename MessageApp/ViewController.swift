@@ -39,11 +39,16 @@ class ViewController: UIViewController {
     }
     
     private func setupCollectionView() {
+        var layout: UICollectionViewCompositionalLayout {
+            let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(100))
+            let item = NSCollectionLayoutItem(layoutSize: size)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            return UICollectionViewCompositionalLayout(section: section)
+        }
+        messageCollectionView.collectionViewLayout = layout
         messageCollectionView.delegate   = self
         messageCollectionView.dataSource = self
-        if let flow = messageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flow.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
